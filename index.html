@@ -1,18 +1,123 @@
+<!-- Marathon Data Browser link: http://localhost/dataBrowser_proj_130/index.html-->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Data Browser</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Data Browser</h1>
-            <div class="data-container" id="dataContainer">
-                <!-- Data will be dynamically inserted here -->
-            </div>
-        </div>
-        <script src="script.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Marathon Data Browser</title>
+</head>
+<body>
+    <h1>Marathon Data Browser</h1>
+
+    <fieldset>
+        <legend>Marathon Details</legend>
+
+        <ul id="marathon-list"></ul>
+        <p id="raceName"></p>
+        <p id="location"></p>
+        <p id="year"></p>
+        <p id="completed"></p>
+        <p id="raceType"></p>
+
+        <button onclick="firstItem()">First</button>
+        <button onclick="previousItem()">Previous</button>
+        <button onclick="nextItem()">Next</button>
+        <button onclick="lastItem()">Last</button>
+
+        <p id="itemCounter"></p>
+
+        <img id="raceImage" src="" alt="Marathon image" width="200">
+    </fieldset>
+    <!--Search-->
+    <fieldset>
+        <legend>Search Marathon</legend>
+        <label for="searchIndex">Search by Race Index:</label>
+        <input type="number" id="searchIndex" placeholder="Enter race index" min="1" max="100"> 
+        <button onclick="searchingMarathon()">Search</button>
+    </fieldset>
+    <fieldset>
+        <legend>Sort Marathons</legend>
+        <label for="sortBy">Sort by:</label>
+        <select id="sortBy">
+            <option value="raceName">Race Name</option>
+            <option value="location">Location</option>
+            <option value="year">Year</option>
+            <option value="completed">Completed</option>
+            <option value="raceType">Race Type</option>
+        </select>
+    <!--Below is sorting Marathons by acending, decending, and original order-->
+        <button onclick="sortMarathons('asc')">Ascending</button>
+        <button onclick="sortMarathons('desc')">Descending</button>
+        <button onclick="OriginalOrder()">Original Order</button>
+    </fieldset>
+    <fieldset>
+        <legend>Edit Marathon</legend>
+        <button id="editToggle" onclick="toggleEditMode()">Enable Edit Mode</button>
+        <label for="editRaceName">Race Name: </label>
+        <input type="text" id="editRaceName" disabled>
+        <br><br>
+        <label for="editLocation">Location:</label>
+        <input type="text" id="editLocation" disabled>
+        <br><br>
+        <label for="editYear">Year:</label>
+        <input type="number" id="editYear" min="2000" max="2100" disabled>
+        <br><br>
+        <label for="editCompleted">Completed:</label>
+        <select id="editCompleted" disabled>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <br><br>
+        <label for="editRaceType">Race Type:</label>
+        <input type="text" id="editRaceType" disabled>
+        <br><br>
+        <label for="editImage">Change Marathon Image:</label>
+        <input type="file" id="editImage" accept="image/*" disabled>
+        <br><br>
+        <button id="saveButton" onclick="saveMarathon()" disabled>Save Changes</button>
+        <button id="deleteButton" onclick="deleteMarathon()" disabled>
+            Delete Selected Marathon
+        </button>
+        <p id="editMessage"></p>
+    </fieldset>
+    <fieldset>
+        <legend>Insert New Marathon</legend>
+
+        <label for="newRaceName">Race Name:</label>
+        <input type="text" id="newRaceName">
+
+        <br><br>
+
+        <label for="newLocation">Location:</label>
+        <input type="text" id="newLocation">
+
+        <br><br>
+
+        <label for="newYear">Year:</label>
+        <input type="number" id="newYear" min="2000" max="2100">
+
+        <br><br>
+
+        <label for="newCompleted">Completed:</label>
+        <select id="newCompleted">
+            <option value="true">Yes</option>
+            <option value="false" selected>No</option>
+        </select>
+
+        <br><br>
+
+        <label for="newRaceType">Race Type:</label>
+        <input type="text" id="newRaceType">
+        <br><br>
+        <label for="newImage">Marathon Image:</label>
+        <input type="file" id="newImage" accept="image/*">
+
+        <br><br>
+
+        <button onclick="insertMarathon()">Add Marathon</button>
+
+        <p id="insertMessage"></p>
+    </fieldset>
+
+    <script src="script.js"></script>
+</body>
 </html>

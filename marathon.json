@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "raceName": "Two Cities Marathon",
+        "location": "Fresno, California",
+        "year": 2027,
+        "completed": true,
+        "raceType": "Regional",
+        "image": "uploads\/two-cities.jpg"
+    },
+    {
+        "id": 2,
+        "raceName": "Sydney Marathon",
+        "location": "Sydney, Australia",
+        "year": 2028,
+        "completed": false,
+        "raceType": "World Major",
+        "image": "uploads\/sydney.jpg"
+    },
+    {
+        "id": 3,
+        "raceName": "Las Vegas Marathon",
+        "location": "Las Vegas, Nevada",
+        "year": 2027,
+        "completed": false,
+        "raceType": "Regional",
+        "image": "uploads\/las-vegas.jpg"
+    }
+]
